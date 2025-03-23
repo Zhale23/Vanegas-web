@@ -1,0 +1,626 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/*animacion de bienvenida*/
+.welcome-animation {
+    position: absolute;
+    text-align: center;
+    align-content: center;
+    background-color: #072b3aef;
+    backdrop-filter: blur(5px);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+.div-aparecer{
+    animation: expand 2s forwards;
+}
+
+.div-desaparecer{
+    animation: circle-out-center 0.8s forwards;
+}
+
+@keyframes circle-out-center {
+    0% {
+      clip-path: circle(125%);
+    }
+    100% {
+      clip-path: circle(0%);
+    }
+  }
+  
+  [transition-style="out:circle:center"] {
+    animation: 2.5s cubic-bezier(.25, 1, .30, 1) circle-out-center both;
+  }
+
+.welcome-image{
+    margin-top: 5%;
+    width: 20%;
+    animation: appear 0.7s forwards;
+    animation-delay: 1.2;
+}
+
+.elemento-aparecer{
+    animation: elementoAparecer 0.7s forwards;
+}
+.welcome-title{
+    color: rgb(153, 177, 211) ;
+    font-size: 3em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.name-welcome-title{
+    color: rgb(169, 188, 216) ;
+    font-size: 5em;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: relative;
+}
+
+.elemento{
+    opacity: 0;
+}
+
+@keyframes elementoAparecer{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes expand {
+    from {
+      clip-path: circle(0%);
+    }
+    to {
+      clip-path: circle(125%);
+    }
+  }
+  
+  [transition-style="in:circle:center"] {
+    animation: 2.5s cubic-bezier(.25, 1, .30, 1) expand both;
+  }
+
+
+@keyframes appear{
+    0% {
+        width: 0;
+        height: 0;
+        transform: translate(0%, 0%) scale(0);
+    }
+    100% {
+        width: 20%;
+        height: 35%;
+        transform: translate(0%, 0%) scale(1);
+        
+    }
+}
+
+
+body{
+    background: none;
+    position: relative;
+    /* overflow-x: hidden; */
+    width: 100%;
+    height: 100vh;
+}
+body::before{
+    content: "";
+    background-image: url(images/pattern1_poster_u62345.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* opacity: 0.3; */
+    z-index: -1;
+}
+
+/* Estilo del avión */
+.plane-animation {
+    position: absolute;
+    top: 80%; /* Ajusta la posición inicial */
+    left: -10%; /* Fuera del borde izquierdo */
+    font-size: 2rem; /* Tamaño del avión */
+    animation: fly 3s ease-in-out forwards;
+    z-index: 2;
+    animation-delay: 0.7s;
+}
+
+/* Animación */
+@keyframes fly {
+    0% {
+        left: -10%;
+        top: 80%;
+        transform: rotate(0deg); /* Sin rotación inicial */
+    }
+    50% {
+        top: 40%; /* Subir un poco en el medio */
+    }
+    100% {
+        left: 90%; /* Fuera del borde derecho */
+        top: 60%; /* Ajusta la posición final */
+        transform: rotate(80deg); /* Inclinación sutil */
+        display: none;
+    }
+}
+
+
+/*Fondo de la pagina de bienvenida*/
+.background-image{
+    background-image: url(background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    /* width: 100%; */
+}
+
+/** Barra de navegación, estilos*/
+.navbar{
+    backdrop-filter: blur(10px);
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
+.navbar-brand{
+    margin-right: 50%;
+    margin-left: 10px;
+}
+.navbar-nav{
+    margin-left: 20px;
+}
+.nav-link{
+    color: white;
+    font-weight: 600;
+    font-size: 1.15em;
+    margin-right: 10px;
+}
+.nav-link:hover{
+    color: rgb(232, 207, 45);
+}
+
+/*clase a aplicar a la barra cuando se desplace la página*/
+
+.navbar.scrolled{
+    background-color: #00aaffa7;
+    z-index: 3;
+}
+
+/* estilos de la portada principal */
+.front-page-section{
+    color: white;
+    margin-top: 100px;
+}
+.section-container-text h1{
+    font-size: 6vw;
+    font-weight: bold;
+    margin-left: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.section-container-text h5{
+    font-size: 1.9em;
+    margin-top: 20px;
+    margin-left: 25px;
+}
+
+.section-container-text a{
+    margin-top: 30px;
+    margin-left: 25px;
+
+}
+/*whatsAppp icon styles*/
+.logo-whats{
+    position: fixed;
+    cursor: pointer;
+    width: 75px;
+    z-index: 4;
+    bottom: 10px;
+    right: 5%;
+}
+
+.logo-whats:hover{
+    scale: 1.15;
+}
+
+
+/**Formulario rápido, estilos*/
+
+.form-container{
+    width: 30%;
+    background-color: white;
+    color: rgb(51, 51, 51);
+    text-align: center;
+    border-radius: 25px;
+    padding-top: 20px;
+    animation: form-appear 1s;
+    animation-delay: 6s;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.form-appear{
+    animation: form-appear 2.5s ease-in-out;
+}
+@keyframes form-appear {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+  }
+
+ .form-container input{
+    border-radius: 25px;
+    border: solid 1px;
+    margin-bottom: 25px;
+    margin-top: 10px;
+    padding: 5px;
+    width: 90%;
+ }
+ .form-container label{
+    text-align: start;
+    margin-left: 5px;
+    font-weight: 500;
+    font-size: 1.05em;
+    margin-bottom: 15px;
+ }
+
+
+/*estilos del contenido*/
+
+.body-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.body-container h1{
+    font-size: 2.5em;
+    font-weight: 700;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.services-list-container, .destinations-container, .about-us-container, .upcoming-trips-container, .galery-container, .testimonies-container, .footer{
+    width: 70%;
+    margin-top: 5%;
+}
+
+/*estilos de la seccion de flyers*/
+.upcoming-trips-container .card{
+    backdrop-filter: blur(2px);
+    background-color: rgba(42, 156, 217, 0.09);
+}
+
+.down-img{
+    width: 10%;
+    margin-left: 6%;
+}
+.btn {
+    background: linear-gradient(135deg, #fccb70, #f4ba51);
+    color: rgb(38, 38, 38);
+    padding: 10px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 1.15rem;
+    font-weight: 500;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: skewX(-45deg);
+    transition: left 0.5s ease;
+}
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+    border: solid 1px rgb(40, 33, 2);
+
+}
+.btn:hover::before {
+    left: 100%;
+}
+
+/*Estilos de la seccion "servicios"*/
+
+/* Contenedor principal de la lista */
+
+
+/* Estilo base para los elementos de la lista */
+.list-group-item {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(36, 107, 206, 0.8), rgba(0, 172, 255, 0.8));
+    border: none;
+    border-radius: 50px;
+    margin: 10px 0;
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    color: white;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+    transform: scale(1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Efecto hover para resaltar interactividad */
+.list-group-item:hover {
+    background: linear-gradient(135deg, rgba(0, 172, 255, 0.9), rgba(36, 107, 206, 0.9));
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Animación de entrada para los íconos SVG */
+.list-group-item svg {
+    margin-right: 15px;
+    width: 40px;
+    height: 40px;
+    transition: transform 0.4s ease-in-out, filter 0.4s ease-in-out;
+}
+
+.list-group-item:hover svg {
+    transform: rotate(10deg) scale(1.1);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+/* Animación de texto */
+.list-group-item span {
+    position: relative;
+    transition: color 0.4s ease-in-out;
+}
+
+.list-group-item:hover span::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: white;
+    animation: underline-animation 0.6s forwards;
+}
+
+/* Animación de subrayado */
+@keyframes underline-animation {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.carousel-inner{
+    border-radius: 20px;
+}
+/*Galeria*/
+
+.galery-items{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3%;
+    margin: 0 auto;
+    justify-content: center;
+}
+.galeria-container{
+    background-color: #00aaff84;
+    width: 90%;
+    margin: 150px auto;
+    padding: 20px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+.galeria-container h1{
+    margin-bottom: 3%;
+}
+ 
+.img-container{
+    margin-bottom: 3%;
+    width: 30%;
+    object-fit: cover;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+.img-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+.img-container img {
+    border-radius: 15px;
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s ease-in-out, filter 0.4s ease-in-out;
+}
+
+.img-container:hover img {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+.img-container p {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 0px 0px 5px black;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.img-container:hover p {
+    opacity: 1;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    max-width: 80%;
+    max-height: 80%;
+}
+
+#modal-image2 {
+    max-width:80%; 
+    max-height:80%; 
+    width: auto; 
+    height: auto; 
+    object-fit: contain; 
+    border-radius: 8px; 
+}
+
+.close {
+    position: absolute;
+    top: 0px;
+    right: 40px;
+    font-size: 70px;
+    color: white;
+    cursor: pointer;
+}
+
+.galery-items img{
+    animation: appearImg 0.6s;
+}
+
+@keyframes appearImg{
+    0% {
+        width: 0;
+        height: 0;
+        transform: translate(0%, 0%) scale(0);
+    }
+    100% {
+        width: 100%;
+        height: 72%;
+        transform: translate(0%, 0%) scale(1);
+        
+    }
+}
+
+/*Testimonios*/
+
+.comment-card{
+    background-image: url(images/box1.png);
+    background-size: cover;
+    height: 150px;
+    width: 350px;
+}
+.comment-content{
+    text-align: start;
+    width: 80%;
+    margin-left: 10%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.comment-name{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    text-align: start;
+    margin-left: 20%;
+}
+
+.pre-footer{
+    width: 100%;
+}
+.pre-footer img{
+    width: 100%;
+}
+
+/*Footer*/
+
+footer{
+    background: rgb(0,27,66);
+    text-align: center;
+}
+.logo-footer img{
+    width: 15%;
+}
+.gmail-link{
+    color: white;
+}
+.cloud{
+    text-align: center;
+}
+.cloud img{
+    width: 20%;
+    opacity: 0.3;
+}
+
+
+ /*Responsividad detalles**/
+ 
+ @media (max-width: 868px) {
+    .form-container{
+        width: 80%;
+        padding: 10px;
+        margin-top: 5%;
+        padding-bottom: 0;
+    }
+    .form-container label{
+        width: 28%;
+     }    
+    .front-page-section{
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .form-container form{
+        display: flex;
+    }
+    .form-container button{
+        height: min-content;
+        margin-top: 7%;
+    }
+    .navbar-brand {
+        margin: 0 auto;
+    }
+
+    .section-container-text h1 {
+        font-size: 3rem;
+    }
+
+    .section-container-text h5 {
+        font-size: 1.5rem;
+    }
+    .section-container-text a{
+        margin-top: 5px;
+    }
+    .btn {
+        font-size: 0.9rem;
+    }
+}
